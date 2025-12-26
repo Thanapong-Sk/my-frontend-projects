@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <!-- Header -->
+        <header>
+            <h1>Create account</h1>
+
+        </header>
+
+        <!-- Registration Form -->
+        <!-- novalidate = ปิด validation ของ browser -->
+        <form id="signup-form" novalidate>
+
+            <!-- ===== Username ===== -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username">
+                <!-- error message -->
+                <p id="username-error" class="error"></p>
+            </div>
+            <!-- ===== Email ===== -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" >
+                <!-- error message -->
+                <p id="email-error" class="error"></p>
+            </div>
+            <!-- ===== Password ===== -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" >
+                <!-- error message -->
+                <p id="password-error" class="error"></p>
+            </div>
+            <!-- ===== Confirm Password ===== -->
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" >
+                <!-- error message -->
+                <p id="confirm-password-error" class="error"></p>
+            </div>
+            <!-- Phone -->
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" >
+                <!-- error message -->
+                <p id="phone-error" class="error"></p>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
