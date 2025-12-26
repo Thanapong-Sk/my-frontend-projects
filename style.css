@@ -1,0 +1,60 @@
+
+/* ให้การคำนวณขนาดง่ายขึ้น */
+*{
+    box-sizing: border-box;
+}
+
+/* พื้นฐานของหน้าเว็บ */
+body{
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+}
+
+/* กล่องหลัก Layout: mobile-first */
+.container{
+    padding: 1rem;
+    max-width: 100%;
+}
+
+/* หัวข้อ */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media(min-width: 420px){
+    .container{
+        max-width: 420px; /* จำกัดความกว้าง */
+        margin: auto; /* จัดกึ่งกลาง */
+    }
+}
+
+
+/* Form Group */
+/* แต่ละช่อง input */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+
+/* Label */
+label{
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+/* ช่อง input */
+input{
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #000;
+}
+
