@@ -7,54 +7,92 @@
 /* พื้นฐานของหน้าเว็บ */
 body{
     margin: 0;
+    padding: 0;
     font-family: 'Courier New', Courier, monospace;
+    background: #f9fafb;
+    color: #333;
     line-height: 1.5;
 }
 
 /* กล่องหลัก Layout: mobile-first */
 .container{
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
-    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 60rem;   /* แค่เป็นขอบเขตสูงสุด ไม่ fix */
 }
 
 /* หัวข้อ */
 header{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-@media(min-width: 420px){
-    .container{
-        max-width: 420px; /* จำกัดความกว้าง */
-        margin: auto; /* จัดกึ่งกลาง */
-    }
+header h1{
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 
 /* Form Group */
 /* แต่ละช่อง input */
 .form-group {
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 }
-
 
 /* Label */
 label{
-    display: block;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 /* ช่อง input */
 input{
-    width: 100%;
-    padding: 0.6rem;
+    width: 100%;    /* fluid */
+    padding: 0.75rem;
     font-size: 1rem;
     border: 1px solid #ccc;
-    background: #fff;
-    color: #000;
+    border-radius: 0.5rem;
 }
+
+input:focus{
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* Error message */
+.error{
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    min-height: 1em;    /* กัน layout กระโดด 1em อ้างอิงตาม font-size: 0.85rem*/
+}
+
+/* Button */
+button{
+    padding: 0.75rem;
+    background: #008000;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    width: 100%; /* fluid */
+}
+
+button:hover {
+  background: #006400;
+}
+
+
+
+
+
+
+
 
