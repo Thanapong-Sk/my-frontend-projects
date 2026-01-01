@@ -1,63 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form validation</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main class="container">
-        <!-- Header -->
-        <header>
-            <h1>Create account</h1>
+      <!-- Header -->
+      <header>
+        <h1>Create account</h1>
+      </header>
 
-        </header>
+      <!-- Registration Form -->
+      <!-- novalidate = ปิด validation ของ browser -->
+      <form id="signup-form" novalidate>
+        <!-- ===== Username ===== -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            required
+            autocomplete="username"
+            aria-describedby="username-error"
+          />
+          <!-- error message -->
+          <p id="username-error" class="error" role="alert"></p>
+        </div>
+        <!-- ===== Email ===== -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            required
+            autocomplete="email"
+            aria-describedby="email-error"
+          />
+          <!-- error message -->
+          <p id="email-error" class="error" role="alert"></p>
+        </div>
+        <!-- ===== Password ===== -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            required
+            autocomplete="new-password"
+            aria-describedby="password-error"
+          />
+          <!-- error message -->
+          <p id="password-error" class="error" role="alert"></p>
+        </div>
+        <!-- ===== Confirm Password ===== -->
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input
+            type="password"
+            id="confirm-password"
+            required
+            autocomplete="new-password"
+            aria-describedby="confirm-password-error"
+          />
+          <!-- error message -->
+          <p id="confirm-password-error" class="error" role="alert"></p>
+        </div>
+        <!-- Phone -->
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            required
+            autocomplete="tel"
+            aria-describedby="phone-error"
+          />
+          <!-- error message -->
+          <p id="phone-error" class="error" role="alert"></p>
+        </div>
 
-        <!-- Registration Form -->
-        <!-- novalidate = ปิด validation ของ browser -->
-        <form id="signup-form" novalidate>
-
-            <!-- ===== Username ===== -->
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" required aria-describedby="username-error">
-                <!-- error message -->
-                <p id="username-error" class="error" aria-live="polite"></p>
-            </div>
-            <!-- ===== Email ===== -->
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required aria-describedby="email-error">
-                <!-- error message -->
-                <p id="email-error" class="error" aria-live="polite"></p>
-            </div>
-            <!-- ===== Password ===== -->
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" required aria-describedby="password-error">
-                <!-- error message -->
-                <p id="password-error" class="error" aria-live="polite"></p>
-            </div>
-            <!-- ===== Confirm Password ===== -->
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" required aria-describedby="confirm-password-error">
-                <!-- error message -->
-                <p id="confirm-password-error" class="error" aria-live="polite"></p>
-            </div>
-            <!-- Phone -->
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" required aria-describedby="phone-error">
-                <!-- error message -->
-                <p id="phone-error" class="error" aria-live="polite"></p>
-            </div>
-
-            <button type="submit">Register</button>
-        </form>
-        
+        <button type="submit">Register</button>
+      </form>
     </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
