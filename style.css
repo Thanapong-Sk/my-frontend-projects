@@ -34,7 +34,6 @@ header h1{
     font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-
 /* Form Group */
 /* แต่ละช่อง input */
 .form-group {
@@ -89,10 +88,41 @@ button:hover {
   background: #006400;
 }
 
+/*=== Responsive Breakpoints ===*/
+/* Tablet */
+@media (min-width: 678px){
+    form{
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
 
+    /* ให้ label + input อยู่เต็ม column */
+    .form-group{
+        flex-direction: column;
+    }
 
+    /* ปุ่ม Register กินเต็มแถว */
+    button{
+        grid-column: 1 / -1;
+        font-size: 1.15rem;
+    }
+}
 
+/* Desktop */
+@media (min-width: 1024px){
+    .container{
+        padding: 2rem;
+    }
 
+    /* ฟอร์มจัด layout แบบ responsive grid โดยแต่ละช่องมีความกว้างขั้นต่ำ 300px และจะขยายเต็มพื้นที่ที่เหลือ พร้อมมีช่องว่างระหว่างกัน 2rem */
+    form{
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
 
-
-
+    button{
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 20rem;   /* ปุ่มไม่ยาวเกินไป แต่ยัง fluid */
+    }
+}
