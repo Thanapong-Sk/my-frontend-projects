@@ -29,6 +29,7 @@
           <!-- error message -->
           <p id="username-error" class="error" role="alert"></p>
         </div>
+
         <!-- ===== Email ===== -->
         <div class="form-group">
           <label for="email">Email</label>
@@ -42,6 +43,7 @@
           <!-- error message -->
           <p id="email-error" class="error" role="alert"></p>
         </div>
+
         <!-- ===== Password ===== -->
         <div class="form-group">
           <label for="password">Password</label>
@@ -52,9 +54,17 @@
             autocomplete="new-password"
             aria-describedby="password-error"
           />
+          <!-- Password strength meter -->
+          <!-- Progress bar -->
+          <div class="progress-container">
+            <div id="strength-bar"></div>
+          </div>
+          <!-- Message level -->
+          <p id="strength-text"></p>
           <!-- error message -->
           <p id="password-error" class="error" role="alert"></p>
         </div>
+
         <!-- ===== Confirm Password ===== -->
         <div class="form-group">
           <label for="confirm-password">Confirm Password</label>
@@ -68,6 +78,7 @@
           <!-- error message -->
           <p id="confirm-password-error" class="error" role="alert"></p>
         </div>
+
         <!-- Phone -->
         <div class="form-group">
           <label for="phone">Phone</label>

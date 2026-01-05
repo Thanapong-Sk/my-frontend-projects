@@ -91,5 +91,39 @@ inputs.forEach(input => {
     // วนลูปทุกช่อง input แล้วบอกว่า ทุกครั้งที่ผู้ใช้พิมพ์ลงในช่องนั้น (input event) → ให้เรียกฟังก์ชัน checkFormValid() เพื่อตรวจสอบว่าฟอร์มถูกต้องหรือยัง
 });
 
+// === Password strength meter ===
+const passwordInput = document.getElementById("password");      // ดึงช่องกรอกรหัสผ่านจาก DOM
+const strengthBar = document.getElementById("strength-bar");    // ดึง progress bar ที่จะยาวขึ้นตามความแข็งแรง
+const strengthText = document.getElementById("strength-text");  // ดึงข้อความที่จะแสดงว่า Weak / Medium / Strong
+
+passwordInput.addEventListener("input", ()=>{   // ทุกครั้งที่ผู้ใช้พิมพ์รหัสผ่าน จะตรวจสอบความแข็งแรง 
+    const value = passwordInput.value;  // เก็บค่า password ที่กรอกไว้ใน value
+    let strength = 0;  // เริ่มต้น strength = 0
+
+    if(value.length >= 8) strength++;              // ยาว ≥ 8 ตัวอักษร → +1
+    if(/[A-Z]/.test(value)) strength++;            // มีตัวอักษรใหญ่ (A–Z) → +1
+    if(/[0-9]/.test(value)) strength++;            // มีตัวเลข → +1
+    if(/[^A-Za-z0-9]/.test(value)) strength++;     // มีสัญลักษณ์พิเศษ → +1
+
+    strengthBar.className = "";     // รีเซ็ต class ของ bar → เคลียร์สีเดิมก่อน
+
+    if(strength === 0){     	
+        strengthBar.style.width = "0%";
+        strengthText.textContent = "";      // ไม่มีข้อความ
+    }else if(strength <= 2){
+        strengthBar.style.width = "40%";
+        strengthBar.classList.add("weak");  // สีแดง เพราะ .classList.add("weak")
+        strengthText.textContent = "weak";  // ข้อความ "weak"
+    }else if(strength === 3){
+        strengthBar.style.width = "70%";
+        strengthBar.classList.add("medium");  // สีส้ม เพราะ .classList.add("medium")
+        strengthText.textContent = "medium";  // ข้อความ "medium"
+    }else{
+        strengthBar.style.width = "100%";
+        strengthBar.classList.add("strong");  // สีเขียว เพราะ .classList.add("strong")
+        strengthText.textContent = "strong";  // ข้อความ "strong"
+    }
+});
+
 // ปิดปุ่มตอนเริ่มต้น
 registerBtn.disabled = true;

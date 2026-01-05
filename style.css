@@ -62,6 +62,35 @@ input:focus{
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
 }
 
+/* === Password strength meter === */
+/* Progress or Strength bar for password */
+.progress-container{ /* กล่องพื้นหลัง progress bar */
+    width: 100%;    /* กว้างเต็ม */
+    height: 10px;   /* สูง */
+    background-color: #eee;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+#strength-bar{  /* แถบสีที่ขยับตามความแข็งแรงของรหัสผ่าน */
+    height: 100%;  /* สูงเต็ม */
+    width: 0%;  /* เริ่มต้นกว้าง 0 */
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.weak{
+    background-color: red;      /* ถ้ารหัสผ่านอ่อน → แถบเป็นสีแดง */
+}
+
+.medium{
+    background-color: orange;   /* ถ้ารหัสผ่านปานกลาง → แถบเป็นสีส้ม */
+}
+
+.strong{
+    background-color: green;    /* ถ้ารหัสผ่านแข็งแรง → แถบเป็นสีเขียว */
+}
+
 /* Error message */
 .error{
     color: #d9534f;
