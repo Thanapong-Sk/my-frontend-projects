@@ -88,6 +88,13 @@ button:hover {
   background: #006400;
 }
 
+button:disabled{
+    background-color: #ccc;     /* สีเทาอ่อน */
+    color: #666;                /* สีตัวอักษรเทาเข้ม */
+    cursor: not-allowed;          /* เปลี่ยนเมาส์เป็นรูปห้ามกด */
+    opacity: 0.8;                 /* ทำให้ดูจางลง */
+}
+
 /*=== Responsive Breakpoints ===*/
 /* Tablet */
 @media (min-width: 678px){

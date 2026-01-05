@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/parsing": [
+      "default",
+      {
+        "duplicate-id": "off"
+      }
+    ],
+    "button-type": "off",
+    "axe/forms": [
+      "default",
+      {
+        "autocomplete-valid": "off"
+      }
+    ]
+  }
+}
