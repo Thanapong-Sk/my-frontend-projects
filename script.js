@@ -1,5 +1,7 @@
 // ดึง form จาก DOM
 const form = document.getElementById("signup-form");
+
+// ดึงปุ่ม register จาก DOM
 const registerBtn = document.getElementById("register-btn");
 
   // ฟังก์ชันแสดง error
