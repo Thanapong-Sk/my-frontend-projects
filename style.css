@@ -1,5 +1,5 @@
 
-/* ให้การคำนวณขนาดง่ายขึ้น */
+/* Base ให้การคำนวณขนาดง่ายขึ้น */
 *{
     box-sizing: border-box;
 }
@@ -9,9 +9,28 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
-    background: #f9fafb;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.5;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Default light theme */
+:root{
+    --bg-color: #f9fafb;
+    --text-color: #333;
+    --input-bg: #fff;
+    --btn-bg: #008000; 
+    --btn-text: #fff;
+}
+
+/* Dark theme */
+[data-theme = "dark"]{
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --input-bg: #1e1e1e;
+    --btn-bg: #333333;
+    --btn-text: #ffffff;
 }
 
 /* กล่องหลัก Layout: mobile-first */
@@ -39,6 +58,7 @@ header h1{
 .form-group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 /* Label */
@@ -54,6 +74,9 @@ input{
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 input:focus{
@@ -79,16 +102,13 @@ input:focus{
     transition: width 0.3s ease;
 }
 
-.weak{
-    background-color: red;      /* ถ้ารหัสผ่านอ่อน → แถบเป็นสีแดง */
-}
+.weak{background-color: red;      /* ถ้ารหัสผ่านอ่อน → แถบเป็นสีแดง */}
+.medium{background-color: orange;   /* ถ้ารหัสผ่านปานกลาง → แถบเป็นสีส้ม */}
+.strong{background-color: green;    /* ถ้ารหัสผ่านแข็งแรง → แถบเป็นสีเขียว */}
 
-.medium{
-    background-color: orange;   /* ถ้ารหัสผ่านปานกลาง → แถบเป็นสีส้ม */
-}
-
-.strong{
-    background-color: green;    /* ถ้ารหัสผ่านแข็งแรง → แถบเป็นสีเขียว */
+#strength-text{
+    margin-top: 0.5rem;
+    font-weight: bold;
 }
 
 /* Error message */
@@ -102,14 +122,14 @@ input:focus{
 /* Button */
 button{
     padding: 0.75rem;
-    background: #008000;
-    color: #fff;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
     font-size: 1rem;
     font-weight: 600;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: background 0.2s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     width: 100%; /* fluid */
 }
 
@@ -123,6 +143,56 @@ button:disabled{
     cursor: not-allowed;          /* เปลี่ยนเมาส์เป็นรูปห้ามกด */
     opacity: 0.8;                 /* ทำให้ดูจางลง */
 }
+
+/* กล่องรวม switch + label */
+.theme-toggle{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;  /* ระยะห่างระหว่าง switch กับข้อความ */
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Toggle switch style */
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;  /* ซ่อน checkbox */
+    width: 0;
+    height: 0;
+}
+
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;  /* เริ่มต้นพื้นหลังสีเขียว */
+    transition: background-color 0.4s ease;
+    border-radius: 26px;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 20px; width: 20px; left: 3px; bottom: 3px;
+    background-color: #fff;  /* ลูกบอลสีขาว */
+    transition: 0.4s ease;
+    border-radius: 50%;
+}
+
+/* เมื่อเปิด (กด checked) */
+input:checked + .slider {background-color: #4fbb52;}
+input:checked + .slider::before {transform: translateX(24px);}
+
 
 /*=== Responsive Breakpoints ===*/
 /* Tablet */

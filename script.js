@@ -125,5 +125,27 @@ passwordInput.addEventListener("input", ()=>{   // ทุกครั้งท�
     }
 });
 
+// === Light/Dark theme ===
+const themeToggle = document.getElementById("theme-toggle");
+const themeLabel = document.getElementById("theme-label");
+const body = document.body;
+
+// ตั้งค่าเริ่มต้น (ถ้า checkbox ถูก checked)
+if(themeToggle.checked){
+  body.setAttribute("data-theme", "dark");
+  themeLabel.textContent =  "🌙 Dark";
+}else{
+  body.setAttribute("data-theme", "light");
+  themeLabel.textContent = "🌞 Light"; 
+}
+
+// เมื่อผู้ใช้สลับ theme toggle
+themeToggle.addEventListener("change",()=>{
+  const newTheme = themeToggle.checked ? "dark" : "light";
+  body.setAttribute("data-theme", newTheme);
+  themeLabel.textContent = newTheme === "dark" ?  "🌙 Dark" : "🌞 Light";
+});
+
+
 // ปิดปุ่มตอนเริ่มต้น
 registerBtn.disabled = true;
