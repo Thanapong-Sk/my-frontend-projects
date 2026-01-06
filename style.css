@@ -50,7 +50,7 @@ header{
 }
 
 header h1{
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);  /* 1.5rem คือค่าต่ำสุด 4vw คือค่ากลาง ปรับตามความกว้างของหน้าจอ ที่ 4% ของความกว้าง viewport) 2.5rem คือค่าสูงสุด */
 }
 
 /* Form Group */
@@ -63,34 +63,34 @@ header h1{
 
 /* Label */
 label{
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+    margin-bottom: 0.5rem;  /* เพิ่มระยะห่างด้านล่างของ label ประมาณครึ่งบรรทัด เพื่อไม่ให้ติดกับช่องกรอกข้อมูล */
+    font-weight: 600;  /* ทำให้ข้อความ label หนาขึ้น (หนากว่าปกติ แต่ไม่ถึงกับ bold สุดๆ) */
 }
 
 /* ช่อง input */
-input{
-    width: 100%;    /* fluid */
-    padding: 0.75rem;
+input{  /* ทำให้ช่องกรอกข้อมูล เต็มบรรทัด, มีมุมโค้ง, สีปรับตามธีม และเปลี่ยนสีอย่างนุ่มนวล เวลาเปลี่ยนโหมด (เช่น Dark/Light mode) */
+    width: 100%;    /* ช่องกรอกกว้างเต็มบรรทัด (fluid) */
+    padding: 0.75rem;  /*  เพิ่มพื้นที่ด้านในให้ตัวอักษรไม่ติดขอบ */
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc;  /* เส้นขอบบางๆ สีเทาอ่อน */
     border-radius: 0.5rem;
-    background-color: var(--input-bg);
-    color: var(--text-color);
-    transition: background-color 0.4s ease, color 0.4s ease;
+    background-color: var(--input-bg);  /*  สีพื้นหลังใช้ค่าตามตัวแปร CSS (เปลี่ยนได้ตามธีม) */
+    color: var(--text-color);  /* สีตัวอักษรใช้ค่าตามตัวแปร CSS เช่นกัน */
+    transition: background-color 0.4s ease, color 0.4s ease;  /* เวลาเปลี่ยนธีม สีพื้นหลังและสีตัวอักษรจะเปลี่ยนแบบนุ่มๆ */
 }
 
-input:focus{
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+input:focus{  /* ทำให้ช่องกรอก เปลี่ยนสีและมีเงาสวยๆ เวลาเราคลิกเข้าไปพิมพ์ เพื่อบอกผู้ใช้ว่าตอนนี้ช่องนี้กำลังถูกเลือกอยู่ */
+    border-color: #007bff;  /* เปลี่ยนสีเส้นขอบเป็นน้ำเงิน */
+    outline: none;  /*  เอาเส้นกรอบ default ของ browser ออก */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);  /* เพิ่มเงาสีฟ้าอ่อนรอบๆ ช่องกรอก ให้ดูเด่นขึ้น */
 }
 
 /* === Password strength meter === */
 /* Progress or Strength bar for password */
 .progress-container{ /* กล่องพื้นหลัง progress bar */
-    width: 100%;    /* กว้างเต็ม */
+    width: 100%;    /* กว้างเต็มบรรทัด */
     height: 10px;   /* สูง */
-    background-color: #eee;
+    background-color: #eee;  /* พื้นหลังของ progress bar */
     border-radius: 5px;
     margin-top: 5px;
 }
@@ -130,7 +130,7 @@ button{
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    width: 100%; /* fluid */
+    width: 100%; /* ปุ่มกว้างเต็มบรรทัด (fluid) */
 }
 
 button:hover {
@@ -146,52 +146,55 @@ button:disabled{
 
 /* กล่องรวม switch + label */
 .theme-toggle{
-    position: absolute;
+    position: absolute;  /* วางตำแหน่งแบบลอยอิสระ ไม่ขึ้นกับ flow ปกติของหน้า */
     top: 1rem;
     right: 1rem;
-    display: flex;
-    align-items: center;
+    display: inline-flex;  /* ใช้ Flexbox จัดเรียงเนื้อหาภายใน (เช่น สวิตช์ + ข้อความ) */
+    align-items: center;  /*  จัดให้อยู่ตรงกลางในแนวตั้ง */
     gap: 0.5rem;  /* ระยะห่างระหว่าง switch กับข้อความ */
-    font-weight: bold;
+    font-weight: bold;  /* ทำให้ข้อความหนา */
     font-size: 1rem;
     color: var(--text-color);
 }
 
 /* Toggle switch style */
 .switch{
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 26px;
+    position: relative;  /* ทำให้ตำแหน่งของลูก (เช่นปุ่มวงกลมเล็กๆ) สามารถจัดวางได้สัมพันธ์กับกล่องนี้ */
+    display: inline-block;  /* ทำให้กล่องนี้แสดงเป็นบล็อกเล็กๆ ต่อกันในบรรทัด (ไม่กินพื้นที่เต็มบรรทัด) */
+    width: 3.125rem;  /* ความกว้างของสวิตช์ */
+    height: 1.625rem;  /* ความสูงของสวิตช์ */
 }
 
-.switch input {
+.switch input {  /* ซ่อน checkbox เดิม เพื่อให้เราเอา CSS มาทำปุ่มสวิตช์สวยๆ โดยที่ checkbox ยังทำงานอยู่เบื้องหลัง*/
+    position: absolute;  /* ซ่อนจริงๆ ไม่ให้เห็น input */
     opacity: 0;  /* ซ่อน checkbox */
-    width: 0;
-    height: 0;
+    pointer-events: none;  /* กันไม่ให้คลิกไปโดน input ที่ซ่อน */
 }
 
-.slider{
-    position: absolute;
+.slider{  /* พื้นหลังหรือรางของปุ่มสวิตช์ที่ดูเป็นวงรี และเปลี่ยนสีได้อย่างนุ่มนวลเวลาเปิด–ปิด */
+    position: absolute;  /* วางตัวครอบเต็มพื้นที่ของ .switch */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.1875rem;
     cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #ccc;  /* เริ่มต้นพื้นหลังสีเขียว */
-    transition: background-color 0.4s ease;
-    border-radius: 26px;
+    inset: 0;  /* top/right/bottom/left:0 ครอบเต็มกล่อง switch */
+    background-color: #ccc;  /* เริ่มต้นพื้นหลังสีเทาอ่อน */
+    border-radius: 1.5rem;  /* ทำให้มุมโค้งกลายเป็นวงรี เหมือนสวิตช์จริงๆ */
+    transition: background-color 0.4s ease, justify-content 0.4s ease;  /*  เวลาเปลี่ยนสีจะมีเอฟเฟกต์นุ่มๆ ใช้เวลา 0.4s */
 }
 
-.slider::before {
-    position: absolute;
-    content: "";
-    height: 20px; width: 20px; left: 3px; bottom: 3px;
-    background-color: #fff;  /* ลูกบอลสีขาว */
-    transition: 0.4s ease;
-    border-radius: 50%;
+.slider::before {  /* สร้าง ลูกบอลสีขาวกลมๆ ที่อยู่บนสวิตช์ เพื่อให้เลื่อนไปซ้าย–ขวา เวลาเปิด–ปิด */
+    content: "";  /* สร้างกล่องว่างๆ (จำเป็นสำหรับ pseudo-element) */
+    width: 1.25rem; height: 1.25rem;  /* กำหนดขนาดลูกบอล */
+    background-color: #fff;  /* ให้ลูกบอลเป็นสีขาว */
+    border-radius: 50%;  /* ทำให้เป็นวงกลมสมบูรณ์ */
+    transition: transform 0.4s ease;
 }
 
-/* เมื่อเปิด (กด checked) */
-input:checked + .slider {background-color: #4fbb52;}
-input:checked + .slider::before {transform: translateX(24px);}
+/* เมื่อ checkbox ถูกติ๊ก */
+input:checked + .slider {background-color: #4fbb52;}  /* พื้นหลังรางสวิตช์กลายเป็นสีเขียว */
+input:checked + .slider::before {transform: translateX(1.5rem);}  /* ลูกบอลเลื่อนไปขวา */
 
 
 /*=== Responsive Breakpoints ===*/

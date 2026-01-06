@@ -146,6 +146,5 @@ themeToggle.addEventListener("change",()=>{
   themeLabel.textContent = newTheme === "dark" ?  "🌙 Dark" : "🌞 Light";
 });
 
-
 // ปิดปุ่มตอนเริ่มต้น
 registerBtn.disabled = true;
