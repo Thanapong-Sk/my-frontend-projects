@@ -25,48 +25,48 @@ function checkFormValid() {
   // === จัดการแต่ละ form group ===
   // Username
   const username = document.getElementById("username");
-  if (username.value.trim() === "") {
-    showError(username, "Username is required.");
-    isValid = false;
+  if (username.value.trim() === "") {  // ถ้า username เป็นค่าว่าง
+    showError(username, "Username is required.");  // แสดงข้อความ error ที่ username
+    isValid = false;  // สถานะไม่ valid
   } else {
-    clearError(username);
+    clearError(username);  // นอกจากนี้ให้เอา error ออก
   }
 
   // Email
   const email = document.getElementById("email");
   const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/; // Regex นี้บังคับว่า email ต้องมี username@domain.extension โดยไม่มีช่องว่าง และมีจุด (.) หลังโดเมนเสมอ
-  if (!emailPattern.test(email.value)) {
-    showError(email, "Please enter a valid email address.");
-    isValid = false;
+  if (!emailPattern.test(email.value)) {  // ถ้า emailPattern ไม่ถูกต้อง
+    showError(email, "Please enter a valid email address.");  // แสดงข้อความ error ที่ email
+    isValid = false;  // สถานะไม่ valid
   } else {
-    clearError(email);
+    clearError(email);  // นอกจากนี้ให้เอา error ออก
   }
 
   // Password
   const password = document.getElementById("password");
-  if (password.value.length < 8) {
-    showError(password, "Password must be at least 8 characters.");
-    isValid = false;
+  if (password.value.length < 8) {  // ถ้า password มีความยาวน้อยกว่า 8
+    showError(password, "Password must be at least 8 characters.");  // แสดงข้อความ error ที่ password
+    isValid = false;  // สถานะไม่ valid
   } else {
-    clearError(password);
+    clearError(password);  // นอกจากนี้ให้เอา error ออก
   }
 
   // Confirm password
   const confirmPassword = document.getElementById("confirm-password");
-  if (confirmPassword.value !== password.value) {
-    showError(confirmPassword, "Passwords do not match.");
+  if (confirmPassword.value !== password.value) {  // ถ้า confirmPassword มีค่าไม่ตรงกับ password
+    showError(confirmPassword, "Passwords do not match.");  // แสดงข้อความ error ที่ confirmPassword
   } else {
-    clearError(confirmPassword);
+    clearError(confirmPassword);  // นอกจากนี้ให้เอา error ออก
   }
 
   // Phone
   const phone = document.getElementById("phone");
   const phonePattern = /^[0-9]{9,10}$/; // ตัวอย่าง: เบอร์ไทย 9–10 หลักเท่านั้น
-  if (!phonePattern.test(phone.value)) {
-    showError(phone, "Please enter a valid phone number.");
-    isValid = false;
+  if (!phonePattern.test(phone.value)) {  // ถ้า phonePattern มีค่าไม่ตรงตามนี้
+    showError(phone, "Please enter a valid phone number.");  // แสดงข้อความ error ที่ phone
+    isValid = false;  // สถานะไม่ valid
   } else {
-    clearError(phone);
+    clearError(phone);  // นอกจากนี้ให้เอา error ออก
   }
 
   // เปิด/ปิดปุ่ม register ตามผลลัพธ์
@@ -98,7 +98,7 @@ const strengthText = document.getElementById("strength-text");  // ดึงข�
 
 passwordInput.addEventListener("input", ()=>{   // ทุกครั้งที่ผู้ใช้พิมพ์รหัสผ่าน จะตรวจสอบความแข็งแรง 
     const value = passwordInput.value;  // เก็บค่า password ที่กรอกไว้ใน value
-    let strength = 0;  // เริ่มต้น strength = 0
+    let strength = 0;  // เริ่มต้นให้ strength เป็น 0
 
     if(value.length >= 8) strength++;              // ยาว ≥ 8 ตัวอักษร → +1
     if(/[A-Z]/.test(value)) strength++;            // มีตัวอักษรใหญ่ (A–Z) → +1
