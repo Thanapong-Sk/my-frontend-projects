@@ -55,6 +55,7 @@ function checkFormValid() {
   const confirmPassword = document.getElementById("confirm-password");
   if (confirmPassword.value !== password.value) {  // ถ้า confirmPassword มีค่าไม่ตรงกับ password
     showError(confirmPassword, "Passwords do not match.");  // แสดงข้อความ error ที่ confirmPassword
+    isValid = false;  // สถานะไม่ valid
   } else {
     clearError(confirmPassword);  // นอกจากนี้ให้เอา error ออก
   }
@@ -105,7 +106,7 @@ passwordInput.addEventListener("input", ()=>{   // ทุกครั้งท�
     if(/[0-9]/.test(value)) strength++;            // มีตัวเลข → +1
     if(/[^A-Za-z0-9]/.test(value)) strength++;     // มีสัญลักษณ์พิเศษ → +1
 
-    strengthBar.className = "";     // รีเซ็ต class ของ bar → เคลียร์สีเดิมก่อน
+    classList.remove("weak","medium","strong")     //  ลบ class ที่ชื่อ weak, medium, strong ออกจาก element เพื่อเคลียร์สีและสไตล์เดิมก่อนใส่ใหม่
 
     if(strength === 0){     	
         strengthBar.style.width = "0%";
@@ -125,26 +126,27 @@ passwordInput.addEventListener("input", ()=>{   // ทุกครั้งท�
     }
 });
 
-// === Light/Dark theme ===
-const themeToggle = document.getElementById("theme-toggle");
-const themeLabel = document.getElementById("theme-label");
-const body = document.body;
+// === Theme switch toggle (Light/Dark Mode) ===
+// เลือก checkbox toggle
+const toggleSwitch = document.querySelector('.theme-switch input');
 
-// ตั้งค่าเริ่มต้น (ถ้า checkbox ถูก checked)
-if(themeToggle.checked){
-  body.setAttribute("data-theme", "dark");
-  themeLabel.textContent =  "🌙 Dark";
-}else{
-  body.setAttribute("data-theme", "light");
-  themeLabel.textContent = "🌞 Light"; 
+// เลือก icon พร้อมข้อความ 
+const toggleIcon = document.getElementById('toggle-icon');
+
+// ฟังก์ชันสลับโหมด
+function switchMode(e){
+  if(e.target.checked){ /* เช็คว่าถ้า checkbox ถูกติ๊ก ให้เปลี่ยนเป็น Dark Mode */ 
+    // Dark Mode
+    document.documentElement.setAttribute('data-theme', 'dark')  /* ใส่ attribute 'data-theme', 'dark' ไปที่ <html> เพื่อให้ CSS รู้ว่าต้องใช้ธีมมืด */ 
+    toggleIcon.innerHTML = '<span class="toggle-text">Dark Mode</span>🌛';  // เปลี่ยนข้อความและไอคอนว่าเป็น Dark Mode พร้อมรูปพระจันทร์
+  }else{  /* ถ้า checkbox ไม่ถูกติ๊ก ให้เปลี่ยนเป็น Light Mode */ 
+    document.documentElement.setAttribute('data-theme', 'light')
+    toggleIcon.innerHTML = '<span class="toggle-text">Light Mode</span> 🌞'; 
+  }
 }
 
-// เมื่อผู้ใช้สลับ theme toggle
-themeToggle.addEventListener("change",()=>{
-  const newTheme = themeToggle.checked ? "dark" : "light";
-  body.setAttribute("data-theme", newTheme);
-  themeLabel.textContent = newTheme === "dark" ?  "🌙 Dark" : "🌞 Light";
-});
+// Event listener
+toggleSwitch.addEventListener("change", switchMode);  /* บอกว่าเมื่อมีการเปลี่ยนค่าในตัวสวิตช์ ให้เรียกฟังก์ชัน switchMode */
 
 // ปิดปุ่มตอนเริ่มต้น
 registerBtn.disabled = true;
