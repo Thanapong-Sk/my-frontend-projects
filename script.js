@@ -106,7 +106,6 @@ passwordInput.addEventListener("input", ()=>{   // ทุกครั้งท�
     if(/[0-9]/.test(value)) strength++;            // มีตัวเลข → +1
     if(/[^A-Za-z0-9]/.test(value)) strength++;     // มีสัญลักษณ์พิเศษ → +1
 
-    // strengthBar.className = "";
     strengthBar.classList.remove("weak","medium","strong")     //  ลบ class ที่ชื่อ weak, medium, strong ออกจาก element เพื่อเคลียร์สีและสไตล์เดิมก่อนใส่ใหม่
 
     if(strength === 0){     	
