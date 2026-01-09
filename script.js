@@ -139,11 +139,23 @@ function switchMode(e){
     // Dark Mode
     document.documentElement.setAttribute('data-theme', 'dark')  /* ใส่ attribute 'data-theme', 'dark' ไปที่ <html> เพื่อให้ CSS รู้ว่าต้องใช้ธีมมืด */ 
     toggleIcon.innerHTML = '<span class="toggle-text">Dark Mode</span>🌛';  // เปลี่ยนข้อความและไอคอนว่าเป็น Dark Mode พร้อมรูปพระจันทร์
+    localStorage.setItem("theme", "dark");  // เพื่อบันทึกค่าใหม่ทุกครั้งที่ผู้ใช้เปลี่ยน theme
   }else{  /* ถ้า checkbox ไม่ถูกติ๊ก ให้เปลี่ยนเป็น Light Mode */ 
     document.documentElement.setAttribute('data-theme', 'light')
     toggleIcon.innerHTML = '<span class="toggle-text">Light Mode</span> 🌞'; 
+    localStorage.setItem("theme", "light");  // เพื่อบันทึกค่าใหม่ทุกครั้งที่ผู้ใช้เปลี่ยน theme
   }
 }
+
+// โหลดค่า theme ที่เคยเลือก
+const savedTheme = localStorage.getItem("theme");  //  อ่านค่าที่เคยเก็บไว้
+if(savedTheme){  // ถ้ามีค่าที่เคยเก็บไว้ 
+  document.documentElement.setAttribute("data-theme", savedTheme);  // ให้ตั้งค่า ให้ตรงกับที่เคยเลือก
+  toggleSwitch.checked = savedTheme === "dark"; //  ทำให้ checkbox toggle ตรงกับค่าเดิม
+  toggleIcon.innerHTML = savedTheme === "dark"  // เปลี่ยนข้อความ/ไอคอนให้ตรงกับโหมดนั้น
+    ? '<span class="toggle-text">Dark Mode</span>🌛' // ถ้าใช่ dark mode
+    : '<span class="toggle-text">Light Mode</span> 🌞';  // ถ้าไม่ใช่ dark mode
+} 
 
 // Event listener
 toggleSwitch.addEventListener("change", switchMode);  /* บอกว่าเมื่อมีการเปลี่ยนค่าในตัวสวิตช์ ให้เรียกฟังก์ชัน switchMode */
