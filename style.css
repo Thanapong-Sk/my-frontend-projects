@@ -53,6 +53,13 @@ header h1{
     font-size: clamp(1.5rem, 4vw, 2.5rem);  /* 1.5rem คือค่าต่ำสุด 4vw คือค่ากลาง ปรับตามความกว้างของหน้าจอ ที่ 4% ของความกว้าง viewport) 2.5rem คือค่าสูงสุด */
 }
 
+/* Form default (mobile-first) */
+form{
+    display: flex;  /* ใช้ Flexbox จัดวางลูกๆ ได้ง่ายขึ้น */
+    flex-direction: column;  /* จัดเรียงลูกๆ (เช่น label + input แต่ละช่อง) ในแนวตั้ง ลงมาเป็นบรรทัดๆ */
+    gap: 1rem;  /* กำหนดช่องว่างระหว่างลูกๆ */
+}
+
 /* Form Group */
 /* แต่ละช่อง input */
 .form-group {
@@ -230,6 +237,7 @@ button:disabled{
 /* Tablet */
 @media (min-width: 768px){
     form{
+        display: grid;
         grid-template-columns: 1fr 1fr;  /* กำหนดให้ฟอร์มมี 2 คอลัมน์เท่าๆกัน (1fr = แบ่งพื้นที่เท่าๆกัน) */
         gap: 1.5rem;  /* กำหนดช่องว่างระหว่างช่องกริด (ทั้งแนวนอนและแนวตั้ง) ให้ห่างกัน 1.5rem */
     }
@@ -254,6 +262,7 @@ button:disabled{
 
     /* ฟอร์มนี้จะจัดเรียงเป็นหลายคอลัมน์อัตโนมัติ โดยแต่ละช่องกว้างอย่างน้อย 300px และมีช่องว่างสวยๆ 2rem → ทำให้ฟอร์มดู responsive (ปรับตามหน้าจอ) โดยไม่ต้องเขียน media query เอง */
     form{
+        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
     } 
