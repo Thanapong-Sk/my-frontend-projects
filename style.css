@@ -233,6 +233,12 @@ button:disabled{
     border-radius: 999px;
 }
 
+input[type="checkbox"]:focus + .slider{  
+    /* เลือก input[type="checkbox"] ที่กำลังถูกโฟกัสอยู่ (เช่นกด Tab มาถึง) และเลือก element ที่อยู่ถัดจาก checkbox และมี class .slider (คือ toggle UI ที่ทำไว้) */
+    outline: 2px solid #2f90e0;  /* ใส่เส้นกรอบ (outline) สีน้ำเงินรอบๆ .slider เพื่อให้เห็นว่ามีโฟกัสอยู่ */
+    outline-offset: 4px;  /* ขยับเส้นกรอบออกห่างจากตัว .slider 4px เพื่อให้ชัดเจน ไม่ทับกับขอบเดิม */
+}
+
 /*=== Responsive Breakpoints ===*/
 /* Tablet */
 @media (min-width: 768px){
