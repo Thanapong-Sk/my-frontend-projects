@@ -35,12 +35,12 @@ body{
 
 /* กล่องหลัก Layout: mobile-first */
 .container{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 60rem;   /* แค่เป็นขอบเขตสูงสุด ไม่ fix */
+    display: flex;  /* ทำให้กล่องนี้เป็น flex container (ใช้ Flexbox จัดวางลูกๆ ได้ง่ายขึ้น) */
+    flex-direction: column;  /* จัดเรียงลูกๆ (เช่น div, form, section) ในแนวตั้ง */
+    padding: 1rem;  /* เว้นระยะห่างด้านในของกล่อง */
+    margin: 0 auto;  /* จัดให้อยู่ตรงกลางแนวนอน (ซ้าย–ขวา auto) */
+    width: 100%;  /* ให้กว้างเต็มพื้นที่ที่มี */
+    max-width: 60rem;   /* กำหนดความกว้างสูงสุดไม่เกิน 60rem (ประมาณ 960px ถ้า 1rem = 16px) เพื่อไม่ให้เนื้อหายืดกว้างเกินไปบนจอใหญ่ */
 }
 
 /* หัวข้อ */
@@ -228,10 +228,10 @@ button:disabled{
 
 /*=== Responsive Breakpoints ===*/
 /* Tablet */
-@media (min-width: 678px){
+@media (min-width: 768px){
     form{
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
+        grid-template-columns: 1fr 1fr;  /* กำหนดให้ฟอร์มมี 2 คอลัมน์เท่าๆกัน (1fr = แบ่งพื้นที่เท่าๆกัน) */
+        gap: 1.5rem;  /* กำหนดช่องว่างระหว่างช่องกริด (ทั้งแนวนอนและแนวตั้ง) ให้ห่างกัน 1.5rem */
     }
 
     /* ให้ label + input อยู่เต็ม column */
@@ -241,26 +241,26 @@ button:disabled{
 
     /* ปุ่ม Register กินเต็มแถว */
     button{
-        grid-column: 1 / -1;
-        font-size: 1.15rem;
+        grid-column: 1 / -1;  /*  สั่งให้ปุ่มกินพื้นที่ตั้งแต่คอลัมน์แรกไปจนถึงคอลัมน์สุดท้าย (คือ ยืดเต็มแถวของกริด) */
+        font-size: 1.15rem;  /* กำหนดขนาดตัวอักษรในปุ่มให้ใหญ่ขึ้นเล็กน้อย (1.15 เท่าของค่า font-size พื้นฐาน) */
     }
 }
 
 /* Desktop */
 @media (min-width: 1024px){
     .container{
-        padding: 2rem;
+        padding: 2rem;  /*  เว้นพื้นที่ว่างรอบๆ เนื้อหาภายในกล่อง เป็น 2rem */
     }
 
-    /* ฟอร์มจัด layout แบบ responsive grid โดยแต่ละช่องมีความกว้างขั้นต่ำ 300px และจะขยายเต็มพื้นที่ที่เหลือ พร้อมมีช่องว่างระหว่างกัน 2rem */
+    /* ฟอร์มนี้จะจัดเรียงเป็นหลายคอลัมน์อัตโนมัติ โดยแต่ละช่องกว้างอย่างน้อย 300px และมีช่องว่างสวยๆ 2rem → ทำให้ฟอร์มดู responsive (ปรับตามหน้าจอ) โดยไม่ต้องเขียน media query เอง */
     form{
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
-    }
+    } 
 
     button{
-        grid-column: 1 / -1;
-        justify-self: center;
-        max-width: 20rem;   /* ปุ่มไม่ยาวเกินไป แต่ยัง fluid */
+        grid-column: 1 / -1;  /*  ให้ปุ่มกินพื้นที่ตั้งแต่คอลัมน์แรกไปจนถึงคอลัมน์สุดท้าย (เต็มแถว) */
+        justify-self: center;  /* จัดตำแหน่งปุ่มให้อยู่ ตรงกลางแนวนอน ของกริด */
+        max-width: 20rem;   /*  จำกัดความกว้างสูงสุดของปุ่มไม่ให้เกิน 20rem */
     }
 }
