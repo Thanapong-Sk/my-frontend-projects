@@ -129,12 +129,17 @@ This approach allows easy scalability without rewriting styles.
 
 ## ⚙️ Installation
 
+To run this project locally:
 ```bash
+# Clone the repository
 git clone https://github.com/Thanapong-Sk/my-frontend-projects.git 
+# Navigate to the project folder
 cd 1-form-validation
-Open index.html in your browser.
+# Open index.html in your browser
 
-  Author
+---
+
+🧑‍💻 Author
 Thanapong Sukbua
 Career-switcher Front-end Developer
 
