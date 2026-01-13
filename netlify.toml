@@ -1,4 +1,1 @@
-[build]
-  base = "1-form-validation"
-  publish = "1-form-validation"
-  command = "echo 'No build needed'"
+
