@@ -6,7 +6,7 @@ Built with a mobile-first approach and no frameworks.
 
 ---
 
-##   Features
+## 🔍 Features
 
 - Accessible form validation (ARIA, keyboard-friendly)
 - Mobile-first & responsive layout
@@ -26,7 +26,7 @@ Built with a mobile-first approach and no frameworks.
 
 ---
 
-##📸 Screenshots
+## 📸 Screenshots
  
 ### 🟢 Light Mode
 ![Light Mode Screenshot](docs/screenshots/light-mode.png)
@@ -47,7 +47,7 @@ Built with a mobile-first approach and no frameworks.
 
 ---
 
-##   Design Decisions
+## 🧠 Design Decisions
 
 ### 1. Mobile-first approach
 The layout was designed starting from small screens to ensure
@@ -80,7 +80,7 @@ This approach allows easy scalability without rewriting styles.
 
 ---
 
-##   What I Learned
+## 📘 What I Learned
 
 - How to design form validation with accessibility in mind from the start
 - How to structure HTML and JavaScript to reduce duplicated logic
@@ -91,7 +91,7 @@ This approach allows easy scalability without rewriting styles.
 
 ---
 
-##   Challenges & Solutions
+## 🧩 Challenges & Solutions
 
 - **Avoiding duplicated validation logic for multiple inputs**  
   → Solved by mapping input IDs directly to their error message elements.
@@ -104,7 +104,7 @@ This approach allows easy scalability without rewriting styles.
 
 ---
 
-##   Future Improvements
+## 🚀 Future Improvements
 
 - Add real-time validation feedback on input blur
 - Integrate backend validation and API handling
@@ -113,7 +113,7 @@ This approach allows easy scalability without rewriting styles.
 
 ---
 
-##   Tech Stack
+## 🛠️ Tech Stack
 
 - HTML5
 - CSS3 (CSS Variables, Flexbox, Grid, Responsive Design)
@@ -121,13 +121,13 @@ This approach allows easy scalability without rewriting styles.
 
 ---
 
-##   Live Demo
+## ▶️ Live Demo
 
   https://github.com/Thanapong-Sk/my-frontend-projects/tree/1-form-validation
 
 ---
 
-##   Installation
+## ⚙️ Installation
 
 ```bash
 git clone https://github.com/Thanapong-Sk/my-frontend-projects.git 
