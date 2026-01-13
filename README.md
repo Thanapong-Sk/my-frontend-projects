@@ -130,12 +130,17 @@ This approach allows easy scalability without rewriting styles.
 ## ⚙️ Installation
 
 To run this project locally:
+
+ 1. **Clone the repository**
 ```bash
-# Clone the repository
 git clone https://github.com/Thanapong-Sk/my-frontend-projects.git 
-# Navigate to the project folder
+```
+2. **Navigate to the project folder**
+```bash
 cd 1-form-validation
-# Open index.html in your browser
+```
+3. **Open index.html in your browser**
+# Simply open index.html in your browser
 
 ---
 
