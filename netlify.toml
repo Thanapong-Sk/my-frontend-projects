@@ -1,4 +1,4 @@
 [build]
-  base = "1-form-validation"      # Folder contains index.html
-  publish = "1-form-validation"   # Folder for deployment
-  command = ""                    # unnecessary to build
+  base = "1-form-validation"
+  publish = "1-form-validation"
+  command = "echo 'No build needed'"
