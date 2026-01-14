@@ -123,14 +123,14 @@ This approach allows easy scalability without rewriting styles.
 
 ## ▶️ Live Demo
 
-  https://github.com/Thanapong-Sk/my-frontend-projects/tree/1-form-validation
+[Click here to view the form validation demo](https://form-validation-thanapong.netlify.app/)
 
 ---
 
 ## ⚙️ Installation
 
 To run this project locally:
-
+แก
  1. **Clone the repository**
 ```bash
 git clone https://github.com/Thanapong-Sk/my-frontend-projects.git 
