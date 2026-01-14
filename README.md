@@ -130,7 +130,7 @@ This approach allows easy scalability without rewriting styles.
 ## ⚙️ Installation
 
 To run this project locally:
-แก
+
  1. **Clone the repository**
 ```bash
 git clone https://github.com/Thanapong-Sk/my-frontend-projects.git 
