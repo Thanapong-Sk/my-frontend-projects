@@ -8,7 +8,7 @@
   </head>
   <body>
     <!-- Header -->
-    <header>
+    <header id="header">
       <nav>
         <ul>
           <li><a href="#about">About Me</a></li>
@@ -23,71 +23,51 @@
     <section id="about">
       <div class="title-group">
         <h1>Thanapong Sukbua</h1>
-        <h2>
+        <p>
           I am a career switcher with a background in process engineering🧑‍🔧,
           transitioning into frontend development🧑‍💻. I focus on building clean,
           responsive interfaces with clear logic and good user experience.
           Rather than chasing trends, I prioritize practical skills,
           maintainable code, and real-world usability. I believe reliability and
           consistency matter more than speed.
-        </h2>
+        </p>
       </div>
     </section>
 
     <!-- Skills section -->
     <section id="skills">
-      <div class="skill-container">
         <h1>Skills</h1>
-        <div class="skill-box">
-          <div class="skill-item">
-            <i class="fa-brands fa-html5"></i>
-            <h3>HTML</h3>
-          </div>
-          <div class="skill-item">
-            <i class="fa-brands fa-css3-alt"></i>
-            <h3>CSS</h3>
-          </div>
-          <div class="skill-item">
-            <i class="fa-brands fa-js"></i>
-            <h3>JavaScript</h3>
-          </div>
-          <div class="skill-item">
-            <i class="fa-brands fa-react"></i>
-            <h3>React</h3>
-          </div>
-          <div class="skill-item">
-            <i class="fa-brands fa-git-alt"></i>
-            <h3>Git</h3>
-          </div>
-        </div>
-      </div>
+        <ul class="skill-list">
+            <li><i class="fa-brands fa-html5">HTML</i></li>
+            <li><i class="fa-brands fa-css3-alt">CSS</i></li>
+            <li><i class="fa-brands fa-js">JavaScript</i></li>
+            <li><i class="fa-brands fa-react">React</i></li>
+            <li><i class="fa-brands fa-git-alt">Git</i></li>
+        </ul>
     </section>
 
     <!-- Projects section -->
     <section id="projects">
-      <div class="project-group">
         <h1>Projects</h1>
         <div class="project-container">
-          <div class="image-container">
-            <h2>Form validation</h2>
-            <img src="Form-validation.png" alt="" id="image1" />
-          </div>
-          <div class="image-container">
-            <h2>Mini e-commerce</h2>
-            <img src="Mini-e-commerce.png" alt="" id="image2" />
-          </div>
+          <figure>
+            <img src="Form-validation.png" alt="Form validation project screenshot" id="image1" />
+            <figcaption>Form validation</figcaption>
+          </figure>
+          <figure>
+            <img src="Mini-e-commerce.png" alt="Mini e-commerce project screenshot" id="image2" />
+            <figcaption>Mini e-commerce</figcaption>
+          </figure>
         </div>
-      </div>
     </section>
 
     <!-- Contact section -->
     <section id="contact">
-      <div class="contact-group">
         <h1>Contact</h1>
         <div class="social-icon">
-          <i class="fa-brands fa-github"></i>
-          <i class="fa-brands fa-linkedin"></i>
-          <i class="fa-brands fa-line"></i>
+          <a href="https://github.com/Thanapong-Sk" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/thanapong-sukbua-5bb511141/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://line.me/ti/p/watcharatoto" target="_blank" target="_blank"><i class="fa-brands fa-line"></i></a>
         </div>
         <p class="contact-email">
           <strong>
@@ -95,9 +75,9 @@
             <a href="mailto:satochi89@gmail.com">Email: satochi89@gmail.com</a>
           </strong>
         </p>
-      </div>
     </section>
 
+    <!-- Footer -->
     <footer>
       <p>@ 2025 My Portfolio</p>
     </footer>
